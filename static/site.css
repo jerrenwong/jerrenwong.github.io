@@ -1,0 +1,309 @@
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("/fonts/stix-two-text-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("/fonts/stix-two-text-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("/fonts/stix-two-text-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #000;
+  --paper: #fff;
+  --gutter: max(1.2rem, 16vw);
+  color-scheme: light;
+}
+
+@media (max-width: 30rem) {
+  :root {
+    --gutter: 1.2rem;
+  }
+}
+
+html {
+  font: 400 20px/1.55 "STIX Two Text", "Times New Roman", Times, serif;
+  font-kerning: normal;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* The bar and the page share a left edge, left of centre, the way text sits on a page. */
+.bar nav,
+main {
+  padding-left: var(--gutter);
+  padding-right: 1.2rem;
+}
+
+main {
+  max-width: 31rem;
+  padding-block: 3.25rem 5rem;
+}
+
+.bar nav,
+.home {
+  max-width: 44rem;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.bar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  padding-block: 0.8rem;
+}
+
+.bar a {
+  text-decoration: none;
+}
+
+/* The name stays left; section links added after it sit on the right. */
+.bar a:first-child {
+  margin-right: auto;
+}
+
+.bar a:hover {
+  text-decoration: underline 1px;
+}
+
+.bar a:focus-visible {
+  outline-color: var(--paper);
+}
+
+.bar ::selection {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+h1,
+h2 {
+  font-weight: 400;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.7rem;
+}
+
+h2 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+p,
+ul,
+ol,
+pre {
+  margin: 0 0 1rem;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+pre {
+  overflow-x: auto;
+  font: 0.8rem/1.6 ui-monospace, Menlo, Consolas, monospace;
+}
+
+code {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+}
+
+pre code {
+  font-size: 1em;
+}
+
+/* Introduction on the left, photo and contact details on the right. */
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 31rem) 10rem;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  align-items: start;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+}
+
+.contact {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+.contact a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.contact a:hover span {
+  text-decoration: underline 1px;
+  text-underline-offset: 0.16em;
+}
+
+.icon {
+  flex: none;
+  width: 1em;
+  height: 1em;
+}
+
+@media (max-width: 44rem) {
+  .intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .intro aside {
+    order: -1;
+    width: 10rem;
+  }
+}
+
+section {
+  scroll-margin-top: 4rem;
+}
+
+/* The title's link is stretched over the whole widget. */
+.project {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.75rem;
+  padding: 0.45rem;
+  border: 1px solid var(--ink);
+  border-radius: 0.75rem;
+}
+
+.project img {
+  flex: none;
+  width: 6.5rem;
+  height: auto;
+  aspect-ratio: 2;
+  object-fit: cover;
+  border-radius: 0.35rem;
+}
+
+.project h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.project p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.project h3 a {
+  text-decoration: none;
+}
+
+.project h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.project:hover h3 a {
+  text-decoration: underline 1px;
+}
+
+.project h3 a:focus-visible {
+  outline: none;
+}
+
+.project:has(h3 a:focus-visible) {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Keeps a link in a description clickable above the stretched one. */
+.project p a {
+  position: relative;
+}
+
+@media (max-width: 30rem) {
+  .project {
+    gap: 0.7rem;
+  }
+
+  .project img {
+    width: 5rem;
+  }
+}
+
+.katex {
+  font-size: 1.04em;
+}
+
+.katex-block {
+  margin: 0;
+}
+
+.katex-display {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0;
+}

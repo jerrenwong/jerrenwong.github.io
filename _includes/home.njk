@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+{% macro widgets(items) %}{% for project in items | reverse %}<article class="project">
+{% if project.data.image %}<img src="{{ project.data.image }}" alt="" width="450" height="225">
+{% endif %}<div>
+<h3>{% if project.data.link %}<a href="{{ project.data.link }}">{{ project.data.title }}</a>{% else %}{{ project.data.title }}{% endif %}</h3>
+{{ project.content | safe }}</div>
+</article>
+{% endfor %}{% endmacro %}
+<div class="intro">
+<div>
+{{ content | safe }}</div>
+<aside>
+<img class="photo" src="{{ photo }}" alt="{{ title }}" width="800" height="800">
+<ul class="contact">
+{% for item in contact %}<li><a href="{{ item.link }}">{% include "icons/" + item.icon + ".svg" %}<span>{{ item.text }}</span></a></li>
+{% endfor %}</ul>
+</aside>
+</div>
+<section id="research">
+<h2>Research</h2>
+{{ widgets(collections.research) }}</section>
+<section id="projects">
+<h2>Projects</h2>
+{{ widgets(collections.projects) }}</section>

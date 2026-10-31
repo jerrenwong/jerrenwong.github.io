@@ -1,17 +1,20 @@
-# Quartz v4
+# jerrenwong.github.io
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+My personal site, built with [Eleventy](https://www.11ty.dev/). Every push to `main` deploys it to GitHub Pages.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+## Editing
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+Run `npm install` once, then `npm run dev` to preview at http://localhost:8080.
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+The introduction and contact details are in `content/index.md`. The photo is `static/photo.jpg`. Any shape works, because it's cropped to a square from the top.
 
-## Sponsors
+To add to Research or Projects, create a Markdown file in `content/research/` or `content/projects/`. It needs a `title` and a short description. `link: https://...` makes the whole widget a link. For a picture, put it in `static/research/` or `static/projects/` and add `image: /research/name.png` or `image: /projects/name.png`; it's cropped to twice as wide as it is tall.
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+Math works with `$...$` and `$$...$$` in any Markdown file.
+
+## Layout
+
+- `content/` holds the pages.
+- `static/site.css` holds the design.
+- `_includes/` holds the HTML templates. To add a section to the top bar, add a link after the name in `base.njk`.
+- `_includes/icons/` holds the contact icons, which are [Octicons](https://primer.style/octicons/).
