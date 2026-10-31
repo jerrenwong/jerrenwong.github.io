@@ -11,4 +11,6 @@ contact:
     link: https://github.com/jerrenwong
 ---
 
-I'm Jer Ren Wong, currently studying Math & AI at MIT. I'm interested in AI safety, and on the side I explore areas like robotics, biological AI, mechanistic interpretability, and game theory. I enjoy tea and badminton :)
+I'm Jer Ren Wong, currently studying Math & AI at MIT. I'm interested in AI safety, and am exploring robotics, biological AI, mechanistic interpretability, and game theory.
+
+I enjoy tea and badminton :)
