@@ -157,8 +157,17 @@ pre code {
   display: grid;
   grid-template-columns: minmax(0, 31rem) 10rem;
   justify-content: space-between;
-  gap: 1.5rem 3rem;
-  align-items: start;
+  gap: 0 3rem;
+  align-items: center;
+}
+
+/* Puts the contact details in a row of their own, so the introduction centres on the photo alone. */
+.intro aside {
+  display: contents;
+}
+
+.intro > div > :last-child {
+  margin-bottom: 0;
 }
 
 .photo {
@@ -171,6 +180,7 @@ pre code {
 }
 
 .contact {
+  grid-column: 2;
   margin: 0.75rem 0 0;
   font-size: 0.85rem;
   overflow-wrap: anywhere;
@@ -197,11 +207,17 @@ pre code {
 @media (max-width: 44rem) {
   .intro {
     grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.5rem;
   }
 
   .intro aside {
+    display: block;
     order: -1;
     width: 10rem;
+  }
+
+  .intro > div > :last-child {
+    margin-bottom: 1rem;
   }
 }
 
